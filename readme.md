@@ -1,4 +1,4 @@
-readme_content = """## 📊 Beszel Docker Monitoring
+## 📊 Beszel Docker Monitoring
 
 A minimalist, lightweight, and real-time server monitoring hub designed for Docker environments. Beszel provides a clean, zero-bloat dashboard to track resources without straining your host system.
 
