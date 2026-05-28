@@ -16,11 +16,8 @@ A minimalist, lightweight, and real-time server monitoring hub designed for Dock
 
 ## 🛠️ Quick Start (Docker Compose)
 
-Launch the Beszel Hub and Agent instantly using the minimalist configuration below:
-
-Code output
-README.md successfully created.
-This is for the Hub Which you need to create a Custom Stack in Portainer for (Be sure to install Docker first)
+# Step 1 
+Launch the Beszel Hub Below using the code:
 ```yaml
 version: '3.8'
 
@@ -39,4 +36,29 @@ Access the Dashboard: Open http://localhost:8090 to create your admin account.
 Add a System: Copy the generated public key from the Hub UI.
 
 Deploy the Agent: Paste the key into your Agent's KEY environment variable and start the container.
+Code output
+README.md successfully created.
+This is for the Hub Which you need to create a Custom Stack in Portainer for (Be sure to install Docker first)
+"""
+```
+# Step 2
+Launch the Beszel Agent Below using the code: 
+```yaml
+services:
+  beszel-agent:
+    image: henrygd/beszel-agent
+    container_name: beszel-agent
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /portainer/Files/AppData/Config/beszel_agent_data:/var/lib/beszel-agent
+      # monitor other disks / partitions by mounting a folder in /extra-filesystems
+      # - /mnt/disk/.beszel:/extra-filesystems/sda1:ro
+    environment:
+      LISTEN: 45876
+      KEY: 'This Key is generated after you setup the hub and add a system'
+      TOKEN: Created after you created a system and set it up in the hub
+      HUB_URL: http://localhost:8090
+
 """
