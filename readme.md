@@ -36,8 +36,6 @@ Access the Dashboard: Open http://localhost:8090 to create your admin account.
 Add a System: Copy the generated public key from the Hub UI.
 
 Deploy the Agent: Paste the key into your Agent's KEY environment variable and start the container.
-Code output
-README.md successfully created.
 This is for the Hub Which you need to create a Custom Stack in Portainer for (Be sure to install Docker first)
 """
 ```
@@ -60,5 +58,6 @@ services:
       KEY: 'This Key is generated after you setup the hub and add a system'
       TOKEN: Created after you created a system and set it up in the hub
       HUB_URL: http://localhost:8090
-
-"""
+```
+# Screenshots:
+<img src="images/Screenshot_20260527_232523.png" alt="App Screenshot" width="600">
