@@ -20,7 +20,7 @@ Launch the Beszel Hub and Agent instantly using the minimalist configuration bel
 
 Code output
 README.md successfully created.
-
+This is for the Hub Which you need to create a Custom Stack in Portainer for (Be sure to install Docker first)
 ```yaml
 version: '3.8'
 
@@ -33,16 +33,6 @@ services:
       - "8090:8090"
     volumes:
       - ./beszel-data:/app/data
-
-  beszel-agent:
-    image: henrygd/beszel-agent:latest
-    container_name: beszel-agent
-    restart: unless-stopped
-    environment:
-      - PORT=4567
-      - KEY=your_agent_public_key_here
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
 ⚙️ Configuration
 Access the Dashboard: Open http://localhost:8090 to create your admin account.
 
